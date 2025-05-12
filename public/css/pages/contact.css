@@ -1,0 +1,258 @@
+/* Contact Page Styles */
+
+/* Contact Section */
+.contact-section {
+  padding: 100px 0;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.contact-info {
+  padding-right: 30px;
+}
+
+.info-items {
+  margin-top: 40px;
+}
+
+.info-item {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.info-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(26, 27, 58, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.info-icon i {
+  font-size: 1.5rem;
+  color: var(--primary-blue);
+}
+
+.info-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.info-content p {
+  color: var(--text-light);
+  margin-bottom: 5px;
+}
+
+.social-links {
+  margin-top: 40px;
+}
+
+.social-links h3 {
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(26, 27, 58, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-blue);
+  transition: var(--transition);
+}
+
+.social-icons a:hover {
+  background-color: var(--accent-gold);
+}
+
+/* Contact Form */
+.contact-form-container {
+  background-color: var(--white);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.contact-form {
+  margin-top: 30px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--medium-gray);
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-blue);
+  outline: none;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-checkbox input {
+  width: auto;
+  margin-right: 10px;
+}
+
+.form-checkbox label {
+  margin-bottom: 0;
+}
+
+.form-checkbox a {
+  color: var(--primary-blue);
+  text-decoration: underline;
+}
+
+.form-checkbox a:hover {
+  color: var(--accent-gold);
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* Map Section */
+.map-section {
+  padding-bottom: 100px;
+}
+
+.map-container {
+  height: 450px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.map-container iframe {
+  border: 0;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 100px 0;
+  background-color: var(--light-gray);
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 50px auto 0;
+}
+
+.faq-item {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.faq-question:hover {
+  background-color: rgba(26, 27, 58, 0.05);
+}
+
+.faq-question h3 {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+
+.faq-icon {
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+}
+
+.faq-answer {
+  padding: 0 30px;
+  max-height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-answer.active {
+  padding: 0 30px 20px;
+  max-height: 500px;
+}
+
+.faq-answer p {
+  color: var(--text-light);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .info-item {
+    flex-direction: column;
+  }
+  
+  .info-icon {
+    margin-bottom: 15px;
+  }
+}
