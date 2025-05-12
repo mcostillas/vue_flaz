@@ -42,5 +42,23 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    
+    <!-- Hidden form for Netlify Forms detection -->
+    <form name="flaz-contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="subject" />
+      <select name="service">
+        <option value="Maintenance">Maintenance Services</option>
+        <option value="Fitout">Fitout Solutions</option>
+        <option value="Electrical">Electrical Services</option>
+        <option value="Plumbing">Plumbing Services</option>
+        <option value="Painting">Painting Services</option>
+        <option value="HVAC">HVAC Solutions</option>
+        <option value="Other">Other</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
   </body>
 </html>
