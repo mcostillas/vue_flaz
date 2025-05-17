@@ -1,19 +1,34 @@
 <template>
-  <div class="project-card">
+  <div class="project-card" :class="{'proposed-project': isProposed}">
     <div class="project-image">
-      <div class="placeholder-image" :style="{ backgroundColor: getProjectColor(index) }">
+      <img v-if="project.images && project.images.length > 0" :src="project.images[0]" alt="Project image" class="actual-image">
+      <div v-else class="placeholder-image" :style="{ backgroundColor: getProjectColor(index) }">
         <span>{{ project.title.charAt(0) }}</span>
       </div>
       <div class="project-overlay">
         <a href="#" class="project-link" @click.prevent="$emit('open-modal', project)">
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-expand-alt"></i>
         </a>
+      </div>
+      <div v-if="isProposed" class="proposed-badge">
+        <span>Proposed</span>
       </div>
     </div>
     <div class="project-info">
       <span class="project-category">{{ project.category }}</span>
       <h3>{{ project.title }}</h3>
-      <p>{{ project.shortDescription }}</p>
+      <div class="project-location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>{{ project.location }}</span>
+      </div>
+      <div v-if="isProposed" class="project-timeline">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Projected Start: {{ project.projectedStart }}</span>
+      </div>
+      <div v-else class="project-timeline">
+        <i class="fas fa-check-circle"></i>
+        <span>Completed: {{ project.completionDate }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -29,6 +44,10 @@ export default {
     index: {
       type: Number,
       required: true
+    },
+    isProposed: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -54,6 +73,11 @@ export default {
   overflow: hidden;
   box-shadow: var(--box-shadow);
   transition: var(--transition);
+  position: relative;
+}
+
+.proposed-project {
+  border: 2px solid var(--accent-gold);
 }
 
 .project-card:hover {
@@ -64,6 +88,13 @@ export default {
   position: relative;
   height: 250px;
   overflow: hidden;
+}
+
+.actual-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
 }
 
 .placeholder-image {
@@ -130,13 +161,62 @@ export default {
 }
 
 .project-info h3 {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 1.3rem;
+}
+
+.project-location {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.project-location i {
+  margin-right: 5px;
+  color: var(--primary-blue);
+  font-size: 0.8rem;
+}
+
+.proposed-project .project-location i {
+  color: var(--accent-gold);
 }
 
 .project-info p {
   color: var(--text-light);
   font-size: 0.95rem;
   line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.proposed-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--accent-gold);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 20px;
+  z-index: 5;
+}
+
+.project-timeline {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.project-timeline i {
+  margin-right: 5px;
+  color: var(--primary-blue);
+}
+
+.proposed-project .project-timeline i {
+  color: var(--accent-gold);
 }
 </style>

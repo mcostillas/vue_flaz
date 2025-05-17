@@ -67,11 +67,12 @@ export default {
 }
 
 .section-subtitle {
-  color: var(--primary-blue);
+  color: var(--accent-gold);
   font-weight: 600;
   font-size: 0.9rem;
   display: block;
   margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 
 .section-header h2 {
@@ -97,7 +98,7 @@ export default {
   bottom: 0;
   left: 25px;
   width: 2px;
-  background-color: var(--primary-blue);
+  background: linear-gradient(to bottom, var(--primary-blue), var(--accent-gold));
 }
 
 .process-step {
@@ -114,6 +115,7 @@ export default {
   width: 50px;
   height: 50px;
   background-color: var(--primary-blue);
+  border: 3px solid var(--accent-gold);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -124,6 +126,7 @@ export default {
   margin-right: 30px;
   position: relative;
   z-index: 1;
+  box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.2);
 }
 
 .step-content {
@@ -135,6 +138,18 @@ export default {
   margin-bottom: 10px;
   font-size: 1.3rem;
   color: var(--primary-blue);
+  display: inline-block;
+  position: relative;
+}
+
+.step-content h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--accent-gold);
 }
 
 .step-content p {

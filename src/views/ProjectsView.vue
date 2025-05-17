@@ -3,30 +3,47 @@
     <!-- Page Header -->
     <PageHeader title="Our Projects" />
 
-    <!-- Projects Gallery -->
-    <section class="projects-gallery">
+    <!-- Completed Projects Gallery -->
+    <section class="projects-gallery completed-projects">
       <div class="container">
         <div class="section-header text-center">
           <span class="section-subtitle">OUR PORTFOLIO</span>
-          <h2>Featured Projects</h2>
+          <h2>Completed Projects</h2>
           <p>Explore our diverse portfolio of successful projects that showcase our expertise and commitment to excellence.</p>
         </div>
         
-        <div class="projects-filter">
-          <button class="filter-btn active" data-filter="all" @click="filterProjects('all')">All</button>
-          <button class="filter-btn" data-filter="maintenance" @click="filterProjects('maintenance')">Maintenance</button>
-          <button class="filter-btn" data-filter="fitout" @click="filterProjects('fitout')">Fitout</button>
-          <button class="filter-btn" data-filter="electrical" @click="filterProjects('electrical')">Electrical</button>
-          <button class="filter-btn" data-filter="plumbing" @click="filterProjects('plumbing')">Plumbing</button>
-          <button class="filter-btn" data-filter="hvac" @click="filterProjects('hvac')">HVAC</button>
-        </div>
+        <!-- Filters removed as requested -->
         
         <div class="projects-grid">
           <ProjectCard 
-            v-for="(project, index) in filteredProjects" 
+            v-for="(project, index) in completedProjects" 
             :key="index"
             :project="project"
             :index="index"
+            @open-modal="openProjectModal"
+          />
+        </div>
+      </div>
+    </section>
+    
+    <!-- Proposed Projects Gallery -->
+    <section class="projects-gallery proposed-projects">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">UPCOMING WORK</span>
+          <h2>Proposed Projects</h2>
+          <p>Discover our upcoming projects and innovative solutions we're planning to implement in the near future.</p>
+        </div>
+        
+        <!-- Filters removed as requested -->
+        
+        <div class="projects-grid">
+          <ProjectCard 
+            v-for="(project, index) in proposedProjects" 
+            :key="index"
+            :project="project"
+            :index="index"
+            :isProposed="true"
             @open-modal="openProjectModal"
           />
         </div>
@@ -72,7 +89,32 @@ export default {
   },
   data() {
     return {
-      projects: [
+      completedProjects: [
+        {
+          id: 7,
+          title: 'Springs 2 Street 2 Villa 42',
+          category: 'Landscaping',
+          shortDescription: 'Complete landscaping of a luxury villa in Springs 2 with modern amenities and premium finishes.',
+          fullDescription: 'This comprehensive landscaping project involved transforming a luxury villa in Springs 2 into a modern living space with premium finishes and state-of-the-art amenities. The project included structural modifications, electrical upgrades, plumbing renovations, and high-end interior design implementation.',
+          client: 'Private Client',
+          location: 'Dubai,UAE',
+          completionDate: 'April 2025',
+          type: 'landscaping',
+          images: [
+            require('@/IMAGE/Projects/Springs 2 Street 2 Villa 42/photo 1.jpg'),
+            require('@/IMAGE/Projects/Springs 2 Street 2 Villa 42/photo 1.1.jpg'),
+            require('@/IMAGE/Projects/Springs 2 Street 2 Villa 42/photo 2.jpg'),
+            require('@/IMAGE/Projects/Springs 2 Street 2 Villa 42/photo 2.1.jpg')
+          ],
+          scope: [
+            'Complete landscaping',
+            'Structural modifications',
+            'Electrical system upgrades',
+            'Plumbing system overhaul',
+            'Premium finish implementation',
+            'Custom cabinetry and millwork'
+          ]
+        },
         {
           id: 1,
           title: 'Al Barsha Corporate Center',
@@ -194,42 +236,105 @@ export default {
           ]
         }
       ],
-      filteredProjects: [],
-      activeFilter: 'all',
+      proposedProjects: [
+        {
+          id: 101,
+          title: 'Business Bay Commercial Complex',
+          category: 'Commercial Development',
+          shortDescription: 'Proposed development of a modern commercial complex with integrated smart building technology.',
+          fullDescription: 'This proposed project involves the development of a state-of-the-art commercial complex in Business Bay, featuring integrated smart building technology, sustainable design elements, and premium amenities. The complex will include office spaces, retail outlets, and recreational facilities.',
+          client: 'Business Bay Developments LLC',
+          location: 'Business Bay, Dubai',
+          projectedStart: 'Q3 2025',
+          estimatedValue: 'AED 15 Million',
+          type: 'fitout',
+          scope: [
+            'Smart building system integration',
+            'Sustainable design implementation',
+            'Premium fitout solutions',
+            'Advanced HVAC systems',
+            'Energy-efficient lighting',
+            'Water conservation systems'
+          ]
+        },
+        {
+          id: 102,
+          title: 'Al Sufouh Residential Towers',
+          category: 'Residential Development',
+          shortDescription: 'Proposed construction of luxury residential towers with smart home integration.',
+          fullDescription: 'This proposed project involves the construction of luxury residential towers in Al Sufouh, featuring smart home integration, premium amenities, and sustainable design elements. The development will include a range of apartment sizes, communal facilities, and landscaped outdoor spaces.',
+          client: 'Al Sufouh Properties',
+          location: 'Al Sufouh, Dubai',
+          projectedStart: 'Q1 2026',
+          estimatedValue: 'AED 25 Million',
+          type: 'electrical',
+          scope: [
+            'Smart home system integration',
+            'Premium electrical installations',
+            'Energy-efficient design',
+            'Advanced security systems',
+            'Automated lighting and climate control',
+            'Sustainable energy solutions'
+          ]
+        },
+        {
+          id: 103,
+          title: 'Dubai Healthcare City Medical Center',
+          category: 'Healthcare Facility',
+          shortDescription: 'Proposed development of a specialized medical center with advanced technical infrastructure.',
+          fullDescription: 'This proposed project involves the development of a specialized medical center in Dubai Healthcare City, featuring advanced technical infrastructure, specialized medical equipment installations, and premium healthcare facility design. The center will include consultation rooms, treatment areas, and administrative spaces.',
+          client: 'Dubai Healthcare Investments',
+          location: 'Dubai Healthcare City, Dubai',
+          projectedStart: 'Q4 2025',
+          estimatedValue: 'AED 18 Million',
+          type: 'hvac',
+          scope: [
+            'Specialized HVAC systems for healthcare',
+            'Medical gas installations',
+            'Clean room technology',
+            'Advanced electrical systems',
+            'Specialized plumbing solutions',
+            'Medical equipment integration'
+          ]
+        },
+        {
+          id: 104,
+          title: 'Dubai Marina Yacht Club Renovation',
+          category: 'Hospitality Renovation',
+          shortDescription: 'Proposed comprehensive renovation of the Dubai Marina Yacht Club with premium amenities.',
+          fullDescription: 'This proposed project involves a comprehensive renovation of the Dubai Marina Yacht Club, featuring premium amenities, luxury finishes, and state-of-the-art facilities. The renovation will include the main clubhouse, dining areas, member facilities, and outdoor spaces.',
+          client: 'Dubai Marina Management',
+          location: 'Dubai Marina, Dubai',
+          projectedStart: 'Q2 2026',
+          estimatedValue: 'AED 12 Million',
+          type: 'plumbing',
+          scope: [
+            'Premium plumbing installations',
+            'Water feature design and implementation',
+            'Marine-grade systems',
+            'Luxury bathroom fixtures',
+            'Water conservation technology',
+            'Specialized drainage solutions'
+          ]
+        }
+      ],
+      // Filters removed as requested
       selectedProject: null
     }
   },
   methods: {
-    filterProjects(filter) {
-      this.activeFilter = filter;
-      
-      if (filter === 'all') {
-        this.filteredProjects = this.projects;
-      } else {
-        this.filteredProjects = this.projects.filter(project => project.type === filter);
-      }
-      
-      // Update active class on filter buttons
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      filterBtns.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('data-filter') === filter) {
-          btn.classList.add('active');
-        }
-      });
-    },
+    
     openProjectModal(project) {
       this.selectedProject = project;
-      document.body.classList.add('modal-open');
     },
+    
     closeProjectModal() {
       this.selectedProject = null;
-      document.body.classList.remove('modal-open');
     }
   },
+  
   mounted() {
     document.title = 'Our Projects | FLAZ Technical Services';
-    this.filterProjects('all');
   }
 }
 </script>

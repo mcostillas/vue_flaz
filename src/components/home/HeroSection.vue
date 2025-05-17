@@ -1,5 +1,14 @@
 <template>
   <section class="hero-section">
+    <div class="video-background">
+      <!-- Image background -->
+      <img src="../../IMAGE/Video/Buiklding.jpg" alt="Building Hero Image" class="video-element">
+      <!-- Enhanced overlay with gradient and pattern -->
+      <div class="video-overlay">
+        <div class="overlay-pattern"></div>
+        <div class="overlay-gradient"></div>
+      </div>
+    </div>
     <div class="hero-content">
       <div class="hero-text">
         <div class="hero-badge">
@@ -19,15 +28,36 @@
         </div>
       </div>
       <div class="hero-image">
-        <div class="logo-wrapper">
-          <div class="logo-decoration"></div>
-          <div class="placeholder-logo">
-            <img src="https://placehold.co/200x200/001F54/FFC107/png?text=FLAZ" alt="FLAZ Technical Services Logo" class="logo-image">
+        <div class="project-showcase">
+          <div class="project-card" :class="{ 'active': activeProject === 0 }">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern Office Building" class="project-image">
+            <div class="project-info">
+              <h3>Commercial Excellence</h3>
+              <p>Premium technical solutions for modern offices</p>
+            </div>
           </div>
-          <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
+          <div class="project-card" :class="{ 'active': activeProject === 1 }">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Residential Tower" class="project-image">
+            <div class="project-info">
+              <h3>Residential Expertise</h3>
+              <p>High-end technical services for luxury living</p>
+            </div>
+          </div>
+          <div class="project-card" :class="{ 'active': activeProject === 2 }">
+            <img src="https://images.unsplash.com/photo-1577985043696-8bd54d9f093f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Smart Building Complex" class="project-image">
+            <div class="project-info">
+              <h3>Smart Building Solutions</h3>
+              <p>Integrated technical systems for modern facilities</p>
+            </div>
+          </div>
+          <div class="project-controls">
+            <button @click="prevProject" class="control-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="project-indicators">
+              <span v-for="(dot, index) in 3" :key="index" 
+                    :class="{ 'active': activeProject === index }" 
+                    @click="activeProject = index"></span>
+            </div>
+            <button @click="nextProject" class="control-btn"><i class="fas fa-chevron-right"></i></button>
           </div>
         </div>
       </div>
@@ -51,18 +81,103 @@
 
 <script>
 export default {
-  name: 'HeroSection'
+  name: 'HeroSection',
+  data() {
+    return {
+      activeProject: 0
+    };
+  },
+  methods: {
+    nextProject() {
+      this.activeProject = (this.activeProject + 1) % 3;
+    },
+    prevProject() {
+      this.activeProject = (this.activeProject - 1 + 3) % 3;
+    }
+  },
+  mounted() {
+    // Auto-rotate projects every 5 seconds
+    setInterval(() => {
+      this.nextProject();
+    }, 5000);
+  }
 }
 </script>
 
 <style scoped>
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
   color: var(--white);
-  padding: 100px 0 0;
+  padding: 190px 0 0; /* Increased top padding to account for nav height */
   position: relative;
   overflow: hidden;
+  margin-bottom: 0;
+  margin-top: -100px; /* Pull the section up further to start above the top of the page */
+}
+
+/* Video/Image Background */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.video-element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%; /* Position the image to show the top-middle part */
+  z-index: 0;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.overlay-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--primary-blue-rgb), 0.7) 0%,
+    rgba(var(--secondary-blue-rgb), 0.55) 50%,
+    rgba(var(--primary-blue-rgb), 0.65) 100%
+  );
+}
+
+.overlay-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.15) 0%, transparent 60%);
+  z-index: 1;
+}
+
+.overlay-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+  opacity: 0.3;
 }
 
 .hero-content {
@@ -71,13 +186,16 @@ export default {
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
+  text-align: left;
+  position: relative;
 }
 
 .hero-text {
   flex: 1;
-  max-width: 600px;
+  max-width: 500px;
   z-index: 2;
+  margin-left: 15px;
 }
 
 .hero-badge {
@@ -143,9 +261,115 @@ export default {
 }
 
 .hero-image {
-  flex: 1;
+  flex: 1.2;
   position: relative;
   z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: -200px;
+}
+
+.project-showcase {
+  width: 700px;
+  height: 550px;
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.project-card.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: var(--white);
+}
+
+.project-info h3 {
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.project-controls {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.control-btn:hover {
+  background: var(--accent-gold);
+  color: var(--primary-blue);
+}
+
+.project-indicators {
+  display: flex;
+  margin: 0 15px;
+}
+
+.project-indicators span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 5px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.project-indicators span.active {
+  background-color: var(--accent-gold);
+  transform: scale(1.2);
 }
 
 .logo-wrapper {
@@ -156,13 +380,30 @@ export default {
   height: 400px;
 }
 
-.logo-decoration {
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, rgba(26, 27, 58, 0.7) 0%, rgba(26, 27, 58, 0.9) 100%);
-  border-radius: 50%;
-  opacity: 0.8;
+.spinning-logo-container {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  perspective: 1000px;
+}
+
+.spinning-logo {
+  width: 100%;
+  height: auto;
+  animation: spin 20s linear infinite;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+  transform-style: preserve-3d;
+}
+
+@keyframes spin {
+  0% { transform: rotateY(0deg) rotateX(10deg); }
+  25% { transform: rotateY(90deg) rotateX(5deg); }
+  50% { transform: rotateY(180deg) rotateX(10deg); }
+  75% { transform: rotateY(270deg) rotateX(5deg); }
+  100% { transform: rotateY(360deg) rotateX(10deg); }
 }
 
 .placeholder-logo {
@@ -184,7 +425,7 @@ export default {
 
 .placeholder-logo img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   border-radius: 50%;
 }

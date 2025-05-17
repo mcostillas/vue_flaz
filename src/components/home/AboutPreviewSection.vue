@@ -4,18 +4,18 @@
       <div class="about-content">
         <div class="about-image">
           <div class="placeholder-image">
-            <img src="https://placehold.co/600x400/E9ECEF/212529/png?text=Team+Photo" alt="FLAZ Technical Services Team" class="logo-image">
-            <div class="placeholder-text">FLAZ Technical Services Team</div>
+            <img src="@/IMAGE/Flaz/FLAZ 3D Building.png" alt="FLAZ Technical Services" class="logo-image">
           </div>
           <div class="experience-badge">
-            <span class="years">10+</span>
-            <span class="text">Years of<br>Experience</span>
+            <span class="years">Rapid Growth</span>
+            <span class="text">Since 2024</span>
           </div>
         </div>
         <div class="about-text">
           <span class="section-subtitle">ABOUT US</span>
-          <h2>A Legacy of Technical Excellence in Dubai</h2>
-          <p>FLAZ Technical Services LLC was established in Dubai with a vision to provide premium technical solutions that meet the highest standards of quality and reliability. Over the years, we have built a reputation for excellence in maintenance services, fitout solutions, and technical consultancy.</p>
+          <h2>Building a Legacy of Technical Excellence in Dubai</h2>
+          <p>FLAZ Technical Services LLC was founded with a clear mission: to deliver high-quality technical solutions with a focus on reliability, innovation, and client satisfaction.</p>
+          <p>Backed by a skilled team with strong industry experience, we've rapidly completed multiple successful projects and earned a reputation for excellence in maintenance services, fit-out solutions, and technical consultancy.</p>
           <div class="about-features">
             <div class="feature" v-for="(feature, index) in features" :key="index">
               <div class="feature-icon">
@@ -76,7 +76,7 @@ export default {
 
 .placeholder-image {
   width: 100%;
-  height: 400px;
+  height: 500px; /* Increased height */
   background-color: var(--light-gray);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -87,15 +87,14 @@ export default {
   overflow: hidden;
 }
 
-.placeholder-image::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.logo-image {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(26, 27, 58, 0.8) 0%, rgba(26, 27, 58, 0.9) 100%);
+  object-fit: contain; /* Changed from cover to contain to show full image */
+  object-position: center;
 }
+
+/* Removed overlay gradient to show team photo clearly */
 
 .placeholder-text {
   color: var(--white);
@@ -111,8 +110,8 @@ export default {
   position: absolute;
   bottom: -30px;
   right: -30px;
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   background-color: var(--accent-gold);
   border-radius: 50%;
   display: flex;
@@ -122,12 +121,14 @@ export default {
   text-align: center;
   color: var(--white);
   box-shadow: var(--box-shadow);
+  padding: 10px;
 }
 
 .experience-badge .years {
-  font-size: 2.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
+  margin-bottom: 5px;
 }
 
 .experience-badge .text {

@@ -85,10 +85,13 @@ export default {
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   transition: var(--transition);
+  border-bottom: 3px solid transparent;
 }
 
 .service-card:hover {
   transform: translateY(-10px);
+  border-bottom: 3px solid var(--accent-gold);
+  box-shadow: 0 10px 30px rgba(255, 193, 7, 0.15);
 }
 
 .service-icon {
@@ -117,7 +120,7 @@ export default {
 }
 
 .service-link {
-  color: var(--primary-blue);
+  color: var(--accent-gold);
   font-weight: 600;
   display: inline-flex;
   align-items: center;

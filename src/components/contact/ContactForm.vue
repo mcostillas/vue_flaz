@@ -61,15 +61,18 @@
       
       <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
-    
-    <!-- Success Message -->
-    <div class="form-success" v-if="formSubmitted">
+  </div>
+  
+  <!-- Success Modal -->
+  <div class="modal" v-if="formSubmitted" @click.self="resetForm">
+    <div class="modal-content">
       <div class="success-icon">
         <i class="fas fa-check-circle"></i>
       </div>
       <h3>Thank You!</h3>
       <p>Your message has been sent successfully. We'll get back to you shortly.</p>
       <button class="btn btn-primary" @click="resetForm">Send Another Message</button>
+      <button class="modal-close" @click="resetForm"><i class="fas fa-times"></i></button>
     </div>
   </div>
 </template>
@@ -142,8 +145,11 @@ export default {
   background-color: var(--white);
   padding: 40px;
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 10px 30px rgba(0, 31, 84, 0.1);
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .section-header {
@@ -240,10 +246,31 @@ button.btn-primary:hover {
   color: var(--primary-blue);
 }
 
-/* Success Message Styles */
-.form-success {
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
   text-align: center;
-  padding: 40px 20px;
+  position: relative;
+  animation: slideIn 0.3s ease;
 }
 
 .success-icon {
@@ -252,14 +279,40 @@ button.btn-primary:hover {
   margin-bottom: 20px;
 }
 
-.form-success h3 {
+.modal-content h3 {
   margin-bottom: 15px;
   font-size: 1.8rem;
 }
 
-.form-success p {
+.modal-content p {
   margin-bottom: 30px;
   color: var(--text-light);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  color: var(--primary-blue);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 /* Responsive Styles */

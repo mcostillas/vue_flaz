@@ -4,22 +4,19 @@
       <div class="about-content">
         <div class="about-image">
           <div class="placeholder-image">
-            <div class="placeholder-text">FLAZ</div>
+            <img src="@/IMAGE/Flaz/team photo.jpg" alt="FLAZ Technical Services Team" class="team-photo">
           </div>
         </div>
         <div class="about-text">
           <span class="section-subtitle">OUR STORY</span>
-          <h2>A Legacy of Technical Excellence in Dubai</h2>
-          <p>FLAZ Technical Services LLC was established in Dubai with a vision to provide premium technical solutions that meet the highest standards of quality and reliability. With over 15 years of industry experience, we have grown to become a trusted partner for businesses and individuals seeking exceptional technical services.</p>
-          <p>Our journey began with a small team of dedicated professionals and has evolved into a comprehensive technical services company with a wide range of specialized offerings. Throughout our growth, we have maintained our commitment to excellence, innovation, and customer satisfaction.</p>
+          <h2>A Fresh Force in Technical Excellence – Powered by Passion and Results</h2>
+          <p>FLAZ Technical Services LLC was established in Dubai on July 13, 2024, with a clear mission: to deliver premium technical solutions rooted in quality, reliability, and innovation. While we are a newly founded company, our team brings together a wealth of experience and an unstoppable drive to excel.</p>
+          <p>In just a short time, we've completed over 100 projects, built a diverse team of 15+ skilled professionals, and maintained a 100% client satisfaction rate—a testament to our team's dedication and the trust our clients have placed in us.</p>
+          <p>As we continue to grow, we remain committed to providing exceptional service, continuous improvement, and tailored solutions that meet the evolving needs of our partners.</p>
           <div class="about-stats">
             <div class="stat-item">
               <span class="stat-number">15+</span>
-              <span class="stat-label">Years Experience</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">500+</span>
-              <span class="stat-label">Projects Completed</span>
+              <span class="stat-label">Skilled Proffesionals</span>
             </div>
             <div class="stat-item">
               <span class="stat-number">100%</span>
@@ -28,6 +25,10 @@
             <div class="stat-item">
               <span class="stat-number">24/7</span>
               <span class="stat-label">Customer Support</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Projects Completed</span>
             </div>
           </div>
         </div>
@@ -73,15 +74,14 @@ export default {
   overflow: hidden;
 }
 
-.placeholder-image::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.team-photo {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(26, 27, 58, 0.8) 0%, rgba(26, 27, 58, 0.9) 100%);
+  object-fit: cover;
+  object-position: center;
 }
+
+/* Removed overlay gradient to show team photo clearly */
 
 .placeholder-text {
   color: var(--white);

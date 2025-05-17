@@ -52,6 +52,7 @@ export default {
     TestimonialsSection,
     CtaSection
   },
+
   mounted() {
     document.title = 'FLAZ Technical Services | Professional Technical Solutions Dubai';
   }

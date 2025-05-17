@@ -106,7 +106,7 @@ export default {
 <style scoped>
 .services-overview {
   padding: 100px 0;
-  background-color: var(--white);
+  background-color: var(--light-gray);
 }
 
 .section-header {
@@ -114,11 +114,12 @@ export default {
 }
 
 .section-subtitle {
-  color: var(--primary-blue);
+  color: var(--accent-gold);
   font-weight: 600;
   font-size: 0.9rem;
   display: block;
   margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 
 .section-header h2 {
@@ -148,7 +149,8 @@ export default {
 
 .service-card:hover {
   transform: translateY(-10px);
-  border-bottom: 3px solid var(--primary-blue);
+  border-bottom: 3px solid var(--accent-gold);
+  box-shadow: 0 10px 30px rgba(255, 193, 7, 0.15);
 }
 
 .service-icon {
@@ -160,6 +162,8 @@ export default {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  border: 2px solid transparent;
+  transition: var(--transition);
 }
 
 .service-icon i {
@@ -170,6 +174,18 @@ export default {
 .service-card h3 {
   margin-bottom: 15px;
   font-size: 1.3rem;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.service-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent-gold);
 }
 
 .service-card p {
@@ -190,7 +206,7 @@ export default {
 }
 
 .service-features i {
-  color: var(--primary-blue);
+  color: var(--accent-gold);
   margin-right: 10px;
 }
 

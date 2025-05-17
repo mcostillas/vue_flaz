@@ -2,8 +2,11 @@
 
 :root {
   --primary-blue: #1a1b3a;
+  --primary-blue-rgb: 26, 27, 58;
   --secondary-blue: #2d2f5d;
+  --secondary-blue-rgb: 45, 47, 93;
   --accent-gold: #ffd046;
+  --accent-gold-rgb: 255, 208, 70;
   --gradient-purple: #8b6b9f;
   --gradient-blue: #4B6793;
   --text-dark: #333;

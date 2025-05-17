@@ -25,8 +25,10 @@
         <div class="footer-section">
           <h3>Contact Info</h3>
           <p><i class="fas fa-map-marker-alt"></i> Office No. 231, 2nd Floor, Al Barsha Business Center, Al Barsha 1, Dubai, UAE</p>
-          <p><i class="fas fa-phone"></i> +971 4 123 4567</p>
+          <p><i class="fas fa-mobile-alt"></i> CP: +971 56 095 6689</p>
+          <p><i class="fas fa-phone"></i> Tel: +971 43 295 536</p>
           <p><i class="fas fa-envelope"></i> info@flaztechnicalservices.com</p>
+          <p><i class="fas fa-globe"></i> flaztechnicalservices.com</p>
         </div>
       </div>
       <div class="footer-bottom">

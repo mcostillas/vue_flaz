@@ -1,9 +1,9 @@
 <template>
-  <header class="site-header">
+  <header class="site-header" :class="{ 'transparent': isTransparent, 'scrolled': hasScrolled }">
     <nav class="nav-container">
       <router-link to="/" class="logo">
-        <div class="placeholder-logo">
-          <img src="https://placehold.co/80x80/001F54/FFC107/png?text=FLAZ" alt="FLAZ Technical Services Logo" class="logo-image">
+        <div class="logo-container">
+          <img src="@/IMAGE/Flaz/3d logo.png" alt="FLAZ Technical Services Logo" class="logo-image">
         </div>
         <span class="logo-text">Flaz Technical Services</span>
       </router-link>
@@ -17,7 +17,7 @@
         <router-link to="/team">Team</router-link>
         <router-link to="/projects">Projects</router-link>
         <router-link to="/contact">Contact</router-link>
-        <router-link to="/contact" class="schedule-consultation">Schedule Consultation</router-link>
+        <router-link to="/contact" class="schedule-consultation" :class="{ 'no-active': $route.path === '/contact' }">Schedule Consultation</router-link>
       </div>
     </nav>
   </header>
@@ -28,13 +28,29 @@ export default {
   name: 'SiteHeader',
   data() {
     return {
-      mobileMenuOpen: false
+      mobileMenuOpen: false,
+      hasScrolled: false
+    }
+  },
+  computed: {
+    isTransparent() {
+      return this.$route.path === '/' && !this.hasScrolled;
     }
   },
   methods: {
     toggleMobileMenu() {
       this.mobileMenuOpen = !this.mobileMenuOpen;
+    },
+    handleScroll() {
+      this.hasScrolled = window.scrollY > 50;
     }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.handleScroll(); // Check initial scroll position
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 }
 </script>
@@ -45,7 +61,31 @@ export default {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.site-header.transparent {
+  background-color: rgba(0, 0, 0, 0) !important;
+  box-shadow: none;
+}
+
+.site-header.transparent .nav-links a {
+  color: var(--white);
+}
+
+.site-header.transparent .logo-text {
+  color: var(--white);
+}
+
+.site-header.transparent .schedule-consultation {
+  background-color: var(--accent-gold);
+  color: var(--primary-blue) !important;
+}
+
+.site-header.scrolled {
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -64,21 +104,19 @@ export default {
   color: var(--primary-blue);
 }
 
-.placeholder-logo {
-  width: 50px;
-  height: 50px;
-  background-color: var(--primary-blue);
-  border-radius: 5px;
+.logo-container {
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 15px;
 }
 
-.placeholder-logo span {
-  color: var(--white);
-  font-weight: 700;
-  font-size: 1rem;
+.logo-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .logo-text {
@@ -115,16 +153,23 @@ export default {
   background-color: var(--primary-blue);
 }
 
+.nav-links a.no-active.router-link-active::after {
+  display: none;
+}
+
 .schedule-consultation {
-  background-color: var(--primary-blue);
-  color: var(--white) !important;
+  background-color: var(--accent-gold);
+  color: var(--primary-blue) !important;
   padding: 10px 20px;
   border-radius: var(--border-radius);
   margin-left: 30px;
+  font-weight: 600;
+  transition: var(--transition);
 }
 
 .schedule-consultation:hover {
-  background-color: #0e1a4d;
+  background-color: var(--primary-blue);
+  color: var(--white) !important;
 }
 
 .mobile-menu-toggle {

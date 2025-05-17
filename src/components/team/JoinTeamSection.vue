@@ -114,7 +114,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(26, 27, 58, 0.8) 0%, rgba(26, 27, 58, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(var(--primary-blue-rgb), 0.8) 0%, rgba(var(--secondary-blue-rgb), 0.9) 100%);
 }
 
 .placeholder-text {

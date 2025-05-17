@@ -9,8 +9,7 @@
     <!-- Service Process -->
     <ServiceProcess />
 
-    <!-- Maintenance Packages -->
-    <MaintenancePackages />
+    <!-- Maintenance Packages section removed -->
 
     <!-- CTA Section -->
     <CtaSection />
@@ -21,7 +20,7 @@
 import PageHeader from '@/components/shared/PageHeader.vue';
 import ServicesOverview from '@/components/services/ServicesOverview.vue';
 import ServiceProcess from '@/components/services/ServiceProcess.vue';
-import MaintenancePackages from '@/components/services/MaintenancePackages.vue';
+// MaintenancePackages component removed
 import CtaSection from '@/components/shared/CtaSection.vue';
 
 export default {
@@ -30,7 +29,7 @@ export default {
     PageHeader,
     ServicesOverview,
     ServiceProcess,
-    MaintenancePackages,
+    // MaintenancePackages removed,
     CtaSection
   },
   mounted() {

@@ -41,14 +41,19 @@ export default {
           details: ['Office No. 231, 2nd Floor, Al Barsha Business Center, Al Barsha 1, Dubai, UAE']
         },
         {
-          title: 'Phone Number',
+          title: 'Contact Numbers',
           icon: 'fas fa-phone-alt',
-          details: ['+971-XXX-XXXX', '+971-XXX-XXXX']
+          details: ['CP: +971 56 095 6689', 'Tel: +971 43 295 536']
         },
         {
           title: 'Email Address',
           icon: 'fas fa-envelope',
-          details: ['info@flaztechnical.com', 'support@flaztechnical.com']
+          details: ['info@flaztechnicalservices.com']
+        },
+        {
+          title: 'Website',
+          icon: 'fas fa-globe',
+          details: ['flaztechnicalservices.com']
         },
         {
           title: 'Working Hours',
@@ -85,11 +90,30 @@ export default {
 
 <style scoped>
 .contact-info {
-  background-color: var(--primary-blue);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
   color: var(--white);
   padding: 40px;
   border-radius: var(--border-radius);
   height: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 31, 84, 0.2);
+}
+
+.contact-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.contact-info > * {
+  position: relative;
+  z-index: 2;
 }
 
 .section-header {
@@ -125,13 +149,21 @@ export default {
 .info-icon {
   width: 50px;
   height: 50px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 15px;
+  margin-right: 20px;
   flex-shrink: 0;
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.2);
+  transition: all 0.3s ease;
+}
+
+.info-item:hover .info-icon {
+  transform: scale(1.1);
+  background-color: rgba(255, 193, 7, 0.2);
 }
 
 .info-icon i {
@@ -169,14 +201,46 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
+  margin-right: 15px;
   color: var(--white);
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icons a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-gold);
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+  z-index: 1;
+  opacity: 0;
+}
+
+.social-icons a i {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-  background-color: var(--accent-gold);
   transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+}
+
+.social-icons a:hover::before {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.social-icons a:hover i {
+  color: var(--primary-blue);
 }
 
 /* Responsive Styles */

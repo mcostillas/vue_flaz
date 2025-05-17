@@ -24,11 +24,27 @@ export default {
 <style scoped>
 .page-header {
   background-color: #1A1B3A;
-  background-image: linear-gradient(135deg, #1A1B3A 0%, #2a4b8d 100%);
+  background-image: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
   padding: 80px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.1) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.page-header > * {
+  position: relative;
+  z-index: 2;
 }
 
 .container {

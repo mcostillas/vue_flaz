@@ -146,7 +146,7 @@ export default {
   left: 0;
   width: 100%;
   padding: 15px;
-  background: linear-gradient(to top, rgba(26, 27, 58, 0.8), transparent);
+  background: linear-gradient(to top, rgba(var(--primary-blue-rgb), 0.8), transparent);
   display: flex;
   justify-content: center;
   transform: translateY(100%);

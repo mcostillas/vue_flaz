@@ -43,7 +43,7 @@ export default {
 .mission-vision {
   padding: 100px 0;
   background-color: var(--primary-blue);
-  background-image: linear-gradient(135deg, var(--primary-blue) 0%, #2a4b8d 100%);
+  background-image: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -55,8 +55,25 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
+  background-image: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.15) 0%, transparent 60%);
+  z-index: 1;
+}
+
+.mission-vision::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
   opacity: 0.2;
+  z-index: 1;
+}
+
+.mission-vision > * {
+  position: relative;
+  z-index: 2;
 }
 
 .mission-vision-content {
