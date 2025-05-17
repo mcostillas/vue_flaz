@@ -2,7 +2,7 @@
   <section class="hero-section-image" id="hero-video">
     <div class="video-background">
       <!-- Video background -->
-      <img src="../../IMAGE/Video/Buiklding.jpg" alt="Building Hero Image" class="video-element">
+      <img src="../../imgfiles/Video/Building.jpg" alt="Building Hero Image" class="video-element">
       <!-- Enhanced overlay with gradient and pattern -->
       <div class="video-overlay">
         <div class="overlay-pattern"></div>

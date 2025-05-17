@@ -4,7 +4,7 @@
       <div class="about-content">
         <div class="about-image">
           <div class="placeholder-image">
-            <img src="@/IMAGE/Flaz/team photo.jpg" alt="FLAZ Technical Services Team" class="team-photo">
+            <img src="@/imgfiles/Flaz/team photo.jpg" alt="FLAZ Technical Services Team" class="team-photo">
           </div>
         </div>
         <div class="about-text">

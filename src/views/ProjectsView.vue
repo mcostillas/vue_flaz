@@ -101,10 +101,10 @@ export default {
           completionDate: 'April 2025',
           type: 'landscaping',
           images: [
-            require('@/IMAGE/Projects/Springs 2 Street 2 Villa 42/photo 1.jpg'),
-            require('@/IMAGE/Projects/Springs 2 Street 2 Villa 42/photo 1.1.jpg'),
-            require('@/IMAGE/Projects/Springs 2 Street 2 Villa 42/photo 2.jpg'),
-            require('@/IMAGE/Projects/Springs 2 Street 2 Villa 42/photo 2.1.jpg')
+            require('@/imgfiles/Projects/Springs 2 Street 2 Villa 42/photo 1.jpg'),
+            require('@/imgfiles/Projects/Springs 2 Street 2 Villa 42/photo 1.1.jpg'),
+            require('@/imgfiles/Projects/Springs 2 Street 2 Villa 42/photo 2.jpg'),
+            require('@/imgfiles/Projects/Springs 2 Street 2 Villa 42/photo 2.1.jpg')
           ],
           scope: [
             'Complete landscaping',

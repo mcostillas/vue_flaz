@@ -4,7 +4,7 @@
       <div class="about-content">
         <div class="about-image">
           <div class="placeholder-image">
-            <img src="@/IMAGE/Flaz/FLAZ 3D Building.png" alt="FLAZ Technical Services" class="logo-image">
+            <img src="@/imgfiles/Flaz/FLAZ 3D Building.png" alt="FLAZ Technical Services" class="logo-image">
           </div>
           <div class="experience-badge">
             <span class="years">Rapid Growth</span>

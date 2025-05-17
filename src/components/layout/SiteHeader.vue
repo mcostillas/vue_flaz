@@ -3,7 +3,7 @@
     <nav class="nav-container">
       <router-link to="/" class="logo">
         <div class="logo-container">
-          <img src="@/IMAGE/Flaz/3d logo.png" alt="FLAZ Technical Services Logo" class="logo-image">
+          <img src="@/imgfiles/Flaz/3d logo.png" alt="FLAZ Technical Services Logo" class="logo-image">
         </div>
         <span class="logo-text">Flaz Technical Services</span>
       </router-link>
