@@ -73,8 +73,8 @@ export default {
     return {
       leadershipTeam: [
         {
-          name: 'Mohammed Al Farsi',
-          position: 'Founder & CEO',
+          name: 'Zedrick Cusi',
+          position: 'CEO',
           description: 'With over 20 years of experience in the technical services industry, Mohammed leads our company with vision and expertise.'
         },
         {

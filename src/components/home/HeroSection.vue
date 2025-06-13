@@ -30,30 +30,52 @@
       <div class="hero-image">
         <div class="project-showcase">
           <div class="project-card" :class="{ 'active': activeProject === 0 }">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern Office Building" class="project-image">
+            <img src="@/imgfiles/Flaz/hero/01-RePainting (4).jpg" alt="Repainting Services" class="project-image">
             <div class="project-info">
-              <h3>Commercial Excellence</h3>
-              <p>Premium technical solutions for modern offices</p>
+              <h3>Repainting Excellence</h3>
+              <p>Premium painting solutions for modern spaces</p>
             </div>
           </div>
           <div class="project-card" :class="{ 'active': activeProject === 1 }">
-            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Residential Tower" class="project-image">
+            <img src="@/imgfiles/Flaz/hero/02-Painting (2).jpeg" alt="Painting Services" class="project-image">
             <div class="project-info">
-              <h3>Residential Expertise</h3>
-              <p>High-end technical services for luxury living</p>
+              <h3>Painting Expertise</h3>
+              <p>High-quality painting services for all surfaces</p>
             </div>
           </div>
           <div class="project-card" :class="{ 'active': activeProject === 2 }">
-            <img src="https://images.unsplash.com/photo-1577985043696-8bd54d9f093f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Smart Building Complex" class="project-image">
+            <img src="@/imgfiles/Flaz/hero/06-Electrical (2).jpeg" alt="Electrical Services" class="project-image">
             <div class="project-info">
-              <h3>Smart Building Solutions</h3>
-              <p>Integrated technical systems for modern facilities</p>
+              <h3>Electrical Solutions</h3>
+              <p>Professional electrical services for all requirements</p>
             </div>
           </div>
+          <div class="project-card" :class="{ 'active': activeProject === 3 }">
+            <img src="@/imgfiles/Flaz/hero/06-Renovation&FitOut (1).jpeg" alt="Renovation & Fit Out" class="project-image">
+            <div class="project-info">
+              <h3>Renovation & Fit Out</h3>
+              <p>Complete renovation and fit out solutions</p>
+            </div>
+          </div>
+          <div class="project-card" :class="{ 'active': activeProject === 4 }">
+            <img src="@/imgfiles/Flaz/hero/10-FalseCeiling (2).jpg" alt="False Ceiling" class="project-image">
+            <div class="project-info">
+              <h3>False Ceiling</h3>
+              <p>Elegant false ceiling designs and installations</p>
+            </div>
+          </div>
+          <div class="project-card" :class="{ 'active': activeProject === 5 }">
+            <img src="@/imgfiles/Flaz/hero/12-GrassInstallation (2).jpg" alt="Grass Installation" class="project-image">
+            <div class="project-info">
+              <h3>Grass Installation</h3>
+              <p>Professional grass installation for outdoor spaces</p>
+            </div>
+          </div>
+          
           <div class="project-controls">
             <button @click="prevProject" class="control-btn"><i class="fas fa-chevron-left"></i></button>
             <div class="project-indicators">
-              <span v-for="(dot, index) in 3" :key="index" 
+              <span v-for="(dot, index) in 7" :key="index" 
                     :class="{ 'active': activeProject === index }" 
                     @click="activeProject = index"></span>
             </div>
@@ -89,10 +111,10 @@ export default {
   },
   methods: {
     nextProject() {
-      this.activeProject = (this.activeProject + 1) % 3;
+      this.activeProject = (this.activeProject + 1) % 7;
     },
     prevProject() {
-      this.activeProject = (this.activeProject - 1 + 3) % 3;
+      this.activeProject = (this.activeProject - 1 + 7) % 7;
     }
   },
   mounted() {

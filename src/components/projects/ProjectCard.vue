@@ -74,6 +74,10 @@ export default {
   box-shadow: var(--box-shadow);
   transition: var(--transition);
   position: relative;
+  width: 100%;
+  height: 450px; /* Increased fixed height */
+  display: flex;
+  flex-direction: column;
 }
 
 .proposed-project {
@@ -86,8 +90,9 @@ export default {
 
 .project-image {
   position: relative;
-  height: 250px;
+  height: 300px; /* Increased image section height */
   overflow: hidden;
+  flex: 0 0 auto;
 }
 
 .actual-image {
@@ -146,7 +151,11 @@ export default {
 }
 
 .project-info {
-  padding: 25px;
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-category {

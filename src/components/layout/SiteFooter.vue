@@ -6,10 +6,10 @@
           <h3>FLAZ Technical Services</h3>
           <p>Your trusted partner for premium maintenance and fitout solutions in Dubai.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61572318343723" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@flaztechnicalservices" aria-label="Tiktok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/flaztechnicalsevices/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
         <div class="footer-section">
@@ -25,8 +25,8 @@
         <div class="footer-section">
           <h3>Contact Info</h3>
           <p><i class="fas fa-map-marker-alt"></i> Office No. 231, 2nd Floor, Al Barsha Business Center, Al Barsha 1, Dubai, UAE</p>
-          <p><i class="fas fa-mobile-alt"></i> CP: +971 56 095 6689</p>
-          <p><i class="fas fa-phone"></i> Tel: +971 43 295 536</p>
+          <p><i class="fas fa-mobile-alt"></i> CP: +971 56 355 0218</p>
+          <p><i class="fas fa-phone"></i> Tel: +971 54 768 8988</p>
           <p><i class="fas fa-envelope"></i> info@flaztechnicalservices.com</p>
           <p><i class="fas fa-globe"></i> flaztechnicalservices.com</p>
         </div>

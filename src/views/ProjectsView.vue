@@ -14,15 +14,50 @@
         
         <!-- Filters removed as requested -->
         
-        <div class="projects-grid">
-          <ProjectCard 
-            v-for="(project, index) in completedProjects" 
-            :key="index"
-            :project="project"
-            :index="index"
-            @open-modal="openProjectModal"
-          />
-        </div>
+        <swiper
+          :modules="[SwiperNavigation, SwiperPagination]"
+          :slides-per-view="3"
+          :space-between="20"
+          :navigation="{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            hideOnClick: false
+          }"
+          :pagination="{
+            el: '.swiper-pagination',
+            clickable: true
+          }"
+          :breakpoints="{
+            '320': {
+              slidesPerView: 1,
+              spaceBetween: 20
+            },
+            '640': {
+              slidesPerView: 2,
+              spaceBetween: 20
+            },
+            '1024': {
+              slidesPerView: 3,
+              spaceBetween: 20
+            }
+          }"
+          class="projects-slider"
+        >
+          <swiper-slide v-for="(project, index) in completedProjects" :key="index">
+            <ProjectCard
+              :project="project"
+              :index="index"
+              @open-modal="openProjectModal"
+            />
+          </swiper-slide>
+          <template #container-end>
+            <div class="slider-navigation">
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </template>
+        </swiper>
       </div>
     </section>
     
@@ -37,16 +72,51 @@
         
         <!-- Filters removed as requested -->
         
-        <div class="projects-grid">
-          <ProjectCard 
-            v-for="(project, index) in proposedProjects" 
-            :key="index"
-            :project="project"
-            :index="index"
-            :isProposed="true"
-            @open-modal="openProjectModal"
-          />
-        </div>
+        <swiper
+          :modules="[SwiperNavigation, SwiperPagination]"
+          :slides-per-view="3"
+          :space-between="20"
+          :navigation="{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            hideOnClick: false
+          }"
+          :pagination="{
+            el: '.swiper-pagination',
+            clickable: true
+          }"
+          :breakpoints="{
+            '320': {
+              slidesPerView: 1,
+              spaceBetween: 20
+            },
+            '640': {
+              slidesPerView: 2,
+              spaceBetween: 20
+            },
+            '1024': {
+              slidesPerView: 3,
+              spaceBetween: 20
+            }
+          }"
+          class="projects-slider"
+        >
+          <swiper-slide v-for="(project, index) in proposedProjects" :key="index">
+            <ProjectCard
+              :project="project"
+              :index="index"
+              :isProposed="true"
+              @open-modal="openProjectModal"
+            />
+          </swiper-slide>
+          <template #container-end>
+            <div class="slider-navigation">
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </template>
+        </swiper>
       </div>
     </section>
 
@@ -74,18 +144,32 @@
 </template>
 
 <script>
-import PageHeader from '@/components/shared/PageHeader.vue';
-import ProjectCard from '@/components/projects/ProjectCard.vue';
-import ProjectModal from '@/components/projects/ProjectModal.vue';
-import ProjectTestimonialsSection from '@/components/projects/ProjectTestimonialsSection.vue';
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation as SwiperNavigation, Pagination as SwiperPagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
+import ProjectCard from '@/components/projects/ProjectCard.vue'
+import ProjectModal from '@/components/projects/ProjectModal.vue'
+import PageHeader from '@/components/shared/PageHeader.vue'
+import ProjectTestimonialsSection from '@/components/projects/ProjectTestimonialsSection.vue'
 
 export default {
   name: 'ProjectsView',
   components: {
-    PageHeader,
     ProjectCard,
     ProjectModal,
+    PageHeader,
+    Swiper,
+    SwiperSlide,
     ProjectTestimonialsSection
+  },
+  setup() {
+    return {
+      SwiperNavigation,
+      SwiperPagination
+    }
   },
   data() {
     return {
@@ -340,6 +424,93 @@ export default {
 </script>
 
 <style scoped>
+/* Swiper Styles */
+.projects-slider {
+  padding: 10px 30px 70px;
+  margin: 0 -30px;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+:deep(.swiper-button-next),
+:deep(.swiper-button-prev) {
+  position: static;
+  width: 24px;
+  height: 24px;
+  color: white;
+  margin: 0 !important;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: none;
+}
+
+:deep(.swiper-button-next::after),
+:deep(.swiper-button-prev::after) {
+  font-size: 12px;
+  font-weight: normal;
+  opacity: 1;
+}
+
+:deep(.swiper-button-next:hover),
+:deep(.swiper-button-prev:hover) {
+  color: var(--accent-gold);
+}
+
+.slider-navigation {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+:deep(.swiper-pagination) {
+  position: static !important;
+  width: auto !important;
+  display: flex;
+  margin: 0 15px;
+}
+
+:deep(.swiper-pagination-bullet) {
+  width: 10px;
+  height: 10px;
+  margin: 0 6px;
+}
+
+:deep(.swiper-pagination-bullet) {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 3px;
+  cursor: pointer;
+  transition: var(--transition);
+  opacity: 0.6;
+}
+
+:deep(.swiper-pagination-bullet-active) {
+  background-color: var(--accent-gold);
+  opacity: 1;
+}
+
+:deep(.swiper-slide) {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
 /* Projects Gallery Section */
 .projects-gallery {
   padding: 80px 0;
